@@ -173,8 +173,8 @@ function Hero() {
 function StatsHeadline() {
   return (
     <div id="stats" className="pt-4 md:pt-8 pb-6 md:pb-8">
-      <div className="text-center px-4 md:px-6">
-        <h2 className="text-xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+      <div className="text-center px-8 md:px-6">
+        <h2 className="text-xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
           Crypto-native brand.
           <br />
           Real-world impact.
@@ -191,41 +191,46 @@ function ProofPoints() {
     {
       value: "PRO SNOWBOARDER",
       label: "COFOUNDER",
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+      icon: <svg className="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>,
+      hideOnMobile: false
     },
     {
       value: "PRO ATHLETE AMBASSADORS",
       label: "WORLDWIDE",
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>
+      icon: <svg className="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>,
+      hideOnMobile: false
     },
     {
       value: "5 GLOBAL EVENTS",
       label: "TAHOE · LISBON · LUGANO",
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      icon: <svg className="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+      hideOnMobile: false
     },
     {
       value: "HATS & COLLECTIBLE PINS",
       label: "SHIPPED WORLDWIDE",
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+      icon: <svg className="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>,
+      hideOnMobile: true
     },
     {
       value: "REAL BRAND COLLABS",
       label: "PIT VIPER · SHRED OPTICS",
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+      icon: <svg className="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>,
+      hideOnMobile: true
     },
   ];
 
   return (
-    <div className="pt-2 md:pt-6 pb-2 md:pb-8">
-      <div className="max-w-3xl mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-5 gap-1 md:gap-6">
+    <div className="pt-6 md:pt-8 pb-0 md:pb-10">
+      <div className="max-w-4xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-10">
           {proofPoints.map((point) => (
-            <div key={point.label} className="text-center">
-              <div className="text-gold/60 mb-1 md:mb-2 flex justify-center">
+            <div key={point.label} className={`text-center ${point.hideOnMobile ? 'hidden md:block' : ''}`}>
+              <div className="text-gold/60 mb-1 md:mb-3 flex justify-center">
                 {point.icon}
               </div>
-              <div className="text-[10px] md:text-sm font-bold text-white mb-0.5 leading-tight">{point.value}</div>
-              <div className="text-[8px] md:text-[10px] text-white/40 uppercase tracking-wider">{point.label}</div>
+              <div className="text-[10px] md:text-base font-black text-white mb-0.5 md:mb-1 leading-tight">{point.value}</div>
+              <div className="text-[8px] md:text-xs text-white/40 uppercase tracking-wider">{point.label}</div>
             </div>
           ))}
         </div>
@@ -237,47 +242,55 @@ function ProofPoints() {
 // Proof Wall - two horizontal filmstrips scrolling opposite directions
 function ProofWall() {
   // Width variations: wide (420-500px landscape), medium (280-350px), narrow (180-220px portrait)
+  // Videos and images alternated for visual variety
   const row1Items = [
     { src: "/images/proof/_MG_0183 (2).jpg", type: "image", width: 420 },
-    { src: "/images/proof/1611327537241636868-U6rnHdTGrJPXpe5shM2R6ojFcCufqxohEgzNRzkzGTw.mp4", type: "video", width: 200 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254594/2009284392498221056-qduq4juFpPmAh9rA_uowb8g.mp4", type: "video", width: 320 },
     { src: "/images/proof/_MG_1018.jpg", type: "image", width: 480 },
-    { src: "/images/proof/1641149414776373250-2ToS-meZg5rR9VdS.mp4", type: "video", width: 320 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768255591/rz0vjumifggticog7tyy.mp4", type: "video", width: 280 },
     { src: "/images/proof/_MG_1067.jpg", type: "image", width: 190 },
-    { src: "/images/proof/1708240584148754589-BhvRdZC51Gxor6S9.mp4", type: "video", width: 450 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254626/1867188708497383424-eQspnZi7JZ1dCwQg_eio2tn.mp4", type: "video", width: 380 },
     { src: "/images/proof/_MG_1265 (1).jpg", type: "image", width: 210 },
-    { src: "/images/proof/1712463085934653463-VrG1X2pSxZ5slxd7GmHyworWlzhbANlxBCzw33fmz3w.mp4", type: "video", width: 280 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254598/1895799319342858501-YBZsnSjtsis6cFeb_igspfr.mp4", type: "video", width: 350 },
     { src: "/images/proof/_MG_4306 (1).jpg", type: "image", width: 500 },
-    { src: "/images/proof/1725276657982885949-gra06Vh0ysekI4Ah.mp4", type: "video", width: 180 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254577/1744720327232589910-3FKepbeVRu9SSZsr_wpxu6u.mp4", type: "video", width: 240 },
     { src: "/images/proof/_MG_5004.jpg", type: "image", width: 380 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254575/1936332427376333168-4N_IYM1puC4qi0nY_qnpnfy.mp4", type: "video", width: 300 },
     { src: "/images/proof/IMG_1623.jpg", type: "image", width: 220 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254571/1754601529829654610-AOQ26mDU6JvDEn63dlEmD3zHDSapn4ZQVhhgVWejQRk_dxajgw.mp4", type: "video", width: 420 },
   ];
 
   const row2Items = [
     { src: "/images/proof/_MG_5212.jpg", type: "image", width: 200 },
-    { src: "/images/proof/1734709145104683200-cppDiErdSCPOfvo1.mp4", type: "video", width: 460 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254578/2005650169518583808-t2cavQ30LHsZAqG__wvq2wc.mp4", type: "video", width: 360 },
     { src: "/images/proof/_MG_9674.jpg", type: "image", width: 190 },
-    { src: "/images/proof/1743413695005532444-QZnaZDb5Q0TH8yl8HnUTzdj8lg_Y-HjnSRvj4SjfMR4.mp4", type: "video", width: 350 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254568/1936332427376333168-3uGlz3CcYExrFQ62_ssczus.mp4", type: "video", width: 320 },
     { src: "/images/proof/_MG_9724.jpg", type: "image", width: 480 },
-    { src: "/images/proof/1744720327232589910-3FKepbeVRu9SSZsr.mp4", type: "video", width: 210 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254555/1743413695005532444-QZnaZDb5Q0TH8yl8HnUTzdj8lg_Y-HjnSRvj4SjfMR4_spmokh.mp4", type: "video", width: 280 },
     { src: "/images/proof/_MG_9824.jpg", type: "image", width: 300 },
-    { src: "/images/proof/1754601529829654610-AOQ26mDU6JvDEn63dlEmD3zHDSapn4ZQVhhgVWejQRk.mp4", type: "video", width: 440 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254553/1708240584148754589-BhvRdZC51Gxor6S9_jnh9qy.mp4", type: "video", width: 380 },
     { src: "/images/proof/_MG_9847.jpg", type: "image", width: 180 },
-    { src: "/images/proof/1761020231353262113-Tq7rUshMIXKBML_Z.mp4", type: "video", width: 380 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254549/1734709145104683200-cppDiErdSCPOfvo1_ki3mqu.mp4", type: "video", width: 340 },
     { src: "/images/proof/_MG_9862.jpg", type: "image", width: 220 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254549/1725276657982885949-gra06Vh0ysekI4Ah_mbceht.mp4", type: "video", width: 260 },
     { src: "/images/proof/G9gBoeMWUAAXy51.jpeg", type: "image", width: 500 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254548/1761020231353262113-Tq7rUshMIXKBML_Z_tve9zk.mp4", type: "video", width: 300 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254544/1712463085934653463-VrG1X2pSxZ5slxd7GmHyworWlzhbANlxBCzw33fmz3w_sys5qu.mp4", type: "video", width: 400 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254538/1786138641569378666-pTgPcCbH3gigJ4dV_ffrojj.mp4", type: "video", width: 350 },
+    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254537/1641149414776373250-2ToS-meZg5rR9VdS_kxrku8.mp4", type: "video", width: 280 },
   ];
 
   return (
-    <div className="overflow-hidden py-1 md:py-6">
+    <div className="overflow-hidden py-1 pb-4 md:py-6">
       {/* Row 1 - scrolls left */}
       <div className="overflow-hidden">
-        <div className="flex gap-2 md:gap-4 animate-scroll-left">
+        <div className="flex gap-2 md:gap-3 animate-scroll-left">
           {[...row1Items, ...row1Items].map((item, i) => {
             const mobileWidth = Math.round(item.width * 0.7);
             return (
               <div
                 key={`r1-${i}`}
-                className="flex-shrink-0 h-[32vh] md:h-[280px] rounded-lg md:rounded-xl overflow-hidden bg-purple-darker w-[var(--mobile-w)] md:w-[var(--desktop-w)]"
+                className="flex-shrink-0 h-[32vh] md:h-[320px] rounded-lg md:rounded-xl overflow-hidden bg-purple-darker w-[var(--mobile-w)] md:w-[var(--desktop-w)]"
                 style={{ '--mobile-w': `${mobileWidth}px`, '--desktop-w': `${item.width}px` } as React.CSSProperties}
               >
                 {item.type === 'video' ? (
@@ -305,17 +318,17 @@ function ProofWall() {
       </div>
 
       {/* Gap between rows */}
-      <div className="h-3 md:h-4" />
+      <div className="h-3 md:h-3" />
 
       {/* Row 2 - scrolls right */}
       <div className="overflow-hidden">
-        <div className="flex gap-2 md:gap-4 animate-scroll-right">
+        <div className="flex gap-2 md:gap-3 animate-scroll-right">
           {[...row2Items, ...row2Items].map((item, i) => {
             const mobileWidth = Math.round(item.width * 0.7);
             return (
               <div
                 key={`r2-${i}`}
-                className="flex-shrink-0 h-[32vh] md:h-[280px] rounded-lg md:rounded-xl overflow-hidden bg-purple-darker w-[var(--mobile-w)] md:w-[var(--desktop-w)]"
+                className="flex-shrink-0 h-[32vh] md:h-[320px] rounded-lg md:rounded-xl overflow-hidden bg-purple-darker w-[var(--mobile-w)] md:w-[var(--desktop-w)]"
                 style={{ '--mobile-w': `${mobileWidth}px`, '--desktop-w': `${item.width}px` } as React.CSSProperties}
               >
                 {item.type === 'video' ? (
@@ -425,37 +438,34 @@ function MeetSassy() {
   ];
 
   return (
-    <section id="meet-sassy" className="scroll-snap-section bg-purple-darker flex items-center justify-center overflow-y-auto">
-      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12 py-16 md:py-16">
-        {/* Two-column layout: 45% left, 55% right */}
-        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-12">
+    <section id="meet-sassy" className="scroll-snap-section bg-purple-darker flex items-center justify-center overflow-y-auto relative">
+      {/* Mobile background image - cropped to top portion only */}
+      <div className="absolute inset-x-0 top-0 h-[70%] md:hidden">
+        <Image
+          src="/images/sassy the sasquatch.png"
+          alt=""
+          fill
+          className="object-cover object-top opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-darker/60 via-purple-darker/80 to-purple-darker" />
+      </div>
 
-          {/* Mobile Sassy thumbnail - shows above content on mobile */}
-          <div className="lg:hidden flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gold/15 rounded-2xl blur-[40px] scale-110" />
-              <Image
-                src="/images/sassy the sasquatch.png"
-                alt="Sassy the Sasquatch"
-                width={200}
-                height={250}
-                className="relative z-10 h-[15vh] w-auto object-contain"
-              />
-            </div>
-          </div>
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12 pt-28 pb-16 md:py-16">
+        {/* Two-column layout: 45% left, 55% right */}
+        <div className="flex flex-col lg:flex-row items-start md:items-center gap-4 lg:gap-12">
 
           {/* LEFT COLUMN - 45% width, content spread vertically */}
           <div className="lg:w-[45%] flex-shrink-0 flex flex-col justify-center lg:py-0">
             {/* Label */}
-            <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-4 lg:mb-6">Meet Sassy</p>
+            <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-2 lg:mb-6">Meet Sassy</p>
 
             {/* Headline */}
-            <h2 className="text-2xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-8">
+            <h2 className="text-2xl md:text-5xl lg:text-6xl font-black text-white mb-2 md:mb-8">
               The Primal Voice Inside
             </h2>
 
             {/* Body paragraphs - condensed on mobile */}
-            <div className="space-y-3 md:space-y-6 text-white/70 leading-relaxed text-sm md:text-lg mb-6 md:mb-12">
+            <div className="space-y-2 md:space-y-6 text-white/70 leading-relaxed text-sm md:text-lg mb-4 md:mb-12">
               <p>
                 Sassy is a Sasquatch. The part of you that wants to tell your boss to fuck off
                 and disappear into the mountains.
@@ -470,7 +480,7 @@ function MeetSassy() {
             </div>
 
             {/* 4 trait points - spread across full width */}
-            <div className="grid grid-cols-2 md:flex md:justify-between gap-4 md:gap-4 mb-6 md:mb-12">
+            <div className="grid grid-cols-2 md:flex md:justify-between gap-3 md:gap-4 mb-4 md:mb-12">
               {traits.map((trait) => (
                 <div key={trait.title} className="flex-1">
                   <div className="text-gold mb-2">{trait.icon}</div>
@@ -485,7 +495,7 @@ function MeetSassy() {
               href="https://opensea.io/collection/shredding-sassy-base"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-gold text-purple-dark font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition-all text-sm self-start"
+              className="inline-block bg-gold text-purple-dark font-bold px-8 py-4 rounded-full hover:bg-yellow-300 transition-all text-sm self-start mt-12 md:mt-0"
             >
               VIEW COLLECTION ON OPENSEA
             </a>
@@ -565,6 +575,18 @@ function ShakaSection() {
                   <div className="text-[10px] md:text-xs text-white/50 uppercase tracking-wide">{stat.label}</div>
                 </div>
               ))}
+            </div>
+
+            {/* Shaka GIF - Mobile only */}
+            <div className="flex md:hidden justify-center mb-6">
+              <Image
+                src="/images/Shaka Shaka Brah GIF by Shredding Sassy.gif"
+                alt="Shaka Shaka Brah"
+                width={200}
+                height={200}
+                className="w-40 h-auto object-contain rounded-2xl"
+                unoptimized
+              />
             </div>
 
             {/* Buy Links - 4 buttons (2x2 grid on mobile) */}
@@ -669,8 +691,8 @@ function ProductsShowcase() {
   }, []);
 
   return (
-    <section id="products" ref={sectionRef} className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
-      <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12 pb-16">
+    <section id="products" ref={sectionRef} className="scroll-snap-section bg-purple-dark flex items-start pt-8 md:pt-24 overflow-y-auto">
+      <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12 pb-16 md:pb-16">
         {/* Top section - Intro text */}
         <div className="text-center mb-8 md:mb-16">
           {/* Label */}
@@ -728,7 +750,7 @@ function ProductsShowcase() {
         </div>
 
         {/* CTA Button */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-4 md:mt-8">
           <a
             href="https://www.shreddingsassy.com"
             target="_blank"
@@ -794,17 +816,17 @@ function TheModel() {
 
   return (
     <section id="the-model" className="scroll-snap-section bg-purple-dark flex items-center md:items-start overflow-y-auto">
-      <div className="max-w-5xl mx-auto px-4 md:px-8 text-center w-full py-12 md:pt-28 md:pb-12">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 text-center w-full pt-16 pb-8 md:pt-28 md:pb-12">
         {/* Label - Fixed */}
-        <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">Alignment</p>
+        <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-3 md:mb-4">Alignment</p>
 
         {/* Headline - Fixed */}
-        <h2 className="text-lg md:text-4xl lg:text-5xl font-black text-white mb-3 md:mb-6 leading-tight">
+        <h2 className="text-lg md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6 leading-tight">
           The people who help build a brand should share in its upside.
         </h2>
 
         {/* Toggle Pills */}
-        <div className="flex justify-center gap-1.5 md:gap-3 mb-4 md:mb-8">
+        <div className="flex justify-center gap-1.5 md:gap-3 mb-6 md:mb-8">
           {tabs.map((tab) => (
             <button
               key={tab.key}
@@ -823,17 +845,17 @@ function TheModel() {
         {/* Dynamic Content */}
         <div className="min-h-0 flex flex-col justify-center">
           {/* Subhead */}
-          <p className="text-sm md:text-xl text-white/70 mb-2 md:mb-4 transition-opacity duration-300">
+          <p className="text-sm md:text-xl text-white/70 mb-3 md:mb-4 transition-opacity duration-300">
             {current.subhead}
           </p>
 
           {/* Body */}
-          <p className="text-white/60 text-xs md:text-lg leading-relaxed max-w-[840px] mx-auto mb-4 md:mb-8 transition-opacity duration-300">
+          <p className="text-white/60 text-xs md:text-lg leading-relaxed max-w-[840px] mx-auto mb-6 md:mb-8 transition-opacity duration-300">
             {current.body}
           </p>
 
           {/* Stats Row */}
-          <div className="flex flex-row justify-center gap-4 md:gap-16 mb-4 md:mb-8">
+          <div className="flex flex-row justify-center gap-4 md:gap-16 mb-6 md:mb-8">
             {current.stats.map((stat) => (
               <div key={stat.label} className="text-center flex-1">
                 <div className="text-lg md:text-3xl font-black text-gold mb-0.5 md:mb-2 transition-all duration-300">{stat.value}</div>
@@ -898,7 +920,6 @@ function IPGallery() {
     { src: "/images/ip/Ski (1).jpg", width: 400, height: 280, rotation: -1 },
     { src: "/images/ip/The (5).jpg", width: 300, height: 350, rotation: 2 },
     { src: "/images/ip/Three (2).jpg", width: 350, height: 300, rotation: -2 },
-    { src: "/images/ip/Under » (4).jpg", width: 320, height: 320, rotation: 1 },
     { src: "/images/ip/Uno(2).jpg", width: 280, height: 340, rotation: -3 },
     { src: "/images/ip/Up (4).jpg", width: 360, height: 280, rotation: 2 },
     { src: "/images/ip/Yyy.jpg", width: 300, height: 320, rotation: -1 },
@@ -907,7 +928,7 @@ function IPGallery() {
   return (
     <section className="pb-16 bg-purple-dark overflow-hidden w-full">
       {/* Header */}
-      <div className="max-w-6xl mx-auto px-4 md:px-6 mb-8 md:mb-12 text-center">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 mb-8 md:mb-12 text-center pt-12 md:pt-0">
         <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">The Art</p>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 md:mb-4">From the vault.</h2>
         <p className="text-white/60 text-sm md:text-xl max-w-2xl mx-auto">
@@ -1174,10 +1195,10 @@ function AthletesSection() {
   }, [targetDate]);
 
   return (
-    <section className="pb-16 bg-purple-dark w-full">
+    <section className="pb-4 md:pb-16 bg-purple-dark w-full">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-8 md:mb-12 pt-12 md:pt-0">
           <h2 className="text-2xl md:text-5xl lg:text-6xl font-black text-white mb-3 md:mb-4">
             Three riders. One mission.
             <br />
@@ -1189,7 +1210,7 @@ function AthletesSection() {
         </div>
 
         {/* Countdown - Big and bold */}
-        <div className="flex justify-center gap-2 md:gap-6 mb-12 md:mb-16">
+        <div className="flex justify-center gap-2 md:gap-6 mb-6 md:mb-16">
           {[
             { value: countdown.days, label: "DAYS" },
             { value: countdown.hours, label: "HRS" },
@@ -1206,7 +1227,7 @@ function AthletesSection() {
         </div>
 
         {/* Athletes - 3 prominent cards */}
-        <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-5xl mx-auto mb-4 md:mb-12">
           {athletes.map((athlete) => (
             <div key={athlete.name} className="group">
               <div className="relative aspect-[3/4] rounded-xl md:rounded-2xl overflow-hidden mb-2 md:mb-4 bg-purple-darker">
@@ -1293,7 +1314,7 @@ function CommunitySection() {
   ];
 
   return (
-    <section id="community" className="pt-16 md:pt-28 pb-16 bg-purple-darker w-full">
+    <section id="community" className="pt-8 md:pt-28 pb-12 md:pb-16 bg-purple-darker w-full">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-12">
           <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">The Community</p>
@@ -1441,7 +1462,7 @@ export default function Home() {
         <Hero />
 
         {/* 2. Proof */}
-        <section className="scroll-snap-section bg-purple-dark flex flex-col pt-24 overflow-y-auto">
+        <section className="scroll-snap-section bg-purple-dark flex flex-col pt-2 pb-8 md:pt-24 md:pb-0 overflow-y-auto">
           <div>
             <StatsHeadline />
             <ProofWall />
@@ -1462,17 +1483,17 @@ export default function Home() {
         <TheModel />
 
         {/* 7. Winter Games 2026 (Paralympics countdown) */}
-        <section id="athletes" className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
+        <section id="athletes" className="scroll-snap-section bg-purple-dark flex items-start pt-4 md:pt-24 overflow-y-auto">
           <AthletesSection />
         </section>
 
         {/* 9. IP Gallery */}
-        <section className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
+        <section className="scroll-snap-section bg-purple-dark flex items-start pt-4 md:pt-24 overflow-y-auto">
           <IPGallery />
         </section>
 
         {/* 10. Join the Mob / Social CTA */}
-        <section className="scroll-snap-section bg-purple-darker flex flex-col pt-24 overflow-y-auto">
+        <section className="scroll-snap-section bg-purple-darker flex flex-col pt-4 md:pt-24 overflow-y-auto">
           <CommunitySection />
           <Footer />
         </section>

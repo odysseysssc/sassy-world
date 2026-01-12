@@ -37,18 +37,19 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Scroll snap sections */
+/* Scroll snap sections - no min-height on mobile */
 .scroll-snap-section {
-  min-height: 100vh;
+  min-height: auto;
 }
 
-/* Only enable snap on desktop */
+/* Only enable snap and min-height on desktop */
 @media (min-width: 768px) {
   .scroll-snap-container {
     scroll-snap-type: y mandatory;
   }
 
   .scroll-snap-section {
+    min-height: 100vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
   }
@@ -74,13 +75,24 @@ body {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 35s linear infinite;
+  animation: scroll-left 7s linear infinite;
   will-change: transform;
 }
 
 .animate-scroll-right {
-  animation: scroll-right 38s linear infinite;
+  animation: scroll-right 7.5s linear infinite;
   will-change: transform;
+}
+
+/* Slower scroll on desktop */
+@media (min-width: 768px) {
+  .animate-scroll-left {
+    animation: scroll-left 35s linear infinite;
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 38s linear infinite;
+  }
 }
 
 /* Pause on hover for better UX */
