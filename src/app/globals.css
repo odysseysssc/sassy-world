@@ -75,23 +75,23 @@ body {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 7s linear infinite;
+  animation: scroll-left 5s linear infinite;
   will-change: transform;
 }
 
 .animate-scroll-right {
-  animation: scroll-right 7.5s linear infinite;
+  animation: scroll-right 5s linear infinite;
   will-change: transform;
 }
 
 /* Slower scroll on desktop */
 @media (min-width: 768px) {
   .animate-scroll-left {
-    animation: scroll-left 35s linear infinite;
+    animation: scroll-left 23s linear infinite;
   }
 
   .animate-scroll-right {
-    animation: scroll-right 38s linear infinite;
+    animation: scroll-right 25s linear infinite;
   }
 }
 
