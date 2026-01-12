@@ -536,7 +536,6 @@ function ShakaSection() {
     { label: "UNISWAP", href: "https://app.uniswap.org/swap?outputCurrency=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F&chain=base" },
     { label: "AERODROME", href: "https://aerodrome.finance/swap?to=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F" },
     { label: "OPENSEA", href: "https://opensea.io/collection/shredding-sassy-base" },
-    { label: "BASEAPP", href: "https://www.base.org/name/shaka" },
   ];
 
   return (
