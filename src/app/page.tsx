@@ -33,7 +33,7 @@ function Nav() {
     { label: "NFTs", href: "#meet-sassy" },
     { label: "TOKEN", href: "#shaka" },
     { label: "PRODUCTS", href: "#products" },
-    { label: "THE MODEL", href: "#the-model" },
+    { label: "ALIGNMENT", href: "#the-model" },
     { label: "ATHLETES", href: "#athletes" },
     { label: "COMMUNITY", href: "#community" },
   ];
@@ -142,7 +142,7 @@ function Hero() {
 
       {/* Left Gradient Overlay */}
       <div
-        className="absolute inset-y-0 left-0 w-[40%]"
+        className="absolute inset-y-0 left-0 w-[60%] md:w-[40%]"
         style={{ background: 'linear-gradient(to right, rgba(40,6,70,0.8), transparent)' }}
       />
 
@@ -189,29 +189,29 @@ function StatsHeadline() {
 function ProofPoints() {
   const proofPoints = [
     {
-      value: "PRO ATHLETES",
-      label: "SPONSORED",
+      value: "PRO SNOWBOARDER",
+      label: "COFOUNDER",
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
     },
     {
-      value: "5 GLOBAL EVENTS",
+      value: "PRO ATHLETE AMBASSADORS",
       label: "WORLDWIDE",
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>
+    },
+    {
+      value: "5 GLOBAL EVENTS",
+      label: "TAHOE · LISBON · LUGANO",
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
     },
     {
-      value: "REAL PRODUCTS",
-      label: "SHIPPED GLOBAL",
+      value: "HATS & COLLECTIBLE PINS",
+      label: "SHIPPED WORLDWIDE",
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
     },
     {
-      value: "10K+ COMMUNITY",
-      label: "MEMBERS",
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-    },
-    {
-      value: "10K NFT",
-      label: "COLLECTION",
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+      value: "REAL BRAND COLLABS",
+      label: "PIT VIPER · SHRED OPTICS",
+      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
     },
   ];
 
@@ -425,13 +425,13 @@ function MeetSassy() {
   ];
 
   return (
-    <section id="meet-sassy" className="scroll-snap-section bg-purple-darker flex items-start pt-24 overflow-y-auto">
-      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+    <section id="meet-sassy" className="scroll-snap-section bg-purple-darker flex items-center justify-center overflow-y-auto">
+      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12 py-24 md:py-16">
         {/* Two-column layout: 45% left, 55% right */}
         <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
 
           {/* Mobile Sassy thumbnail - shows above content on mobile */}
-          <div className="lg:hidden flex justify-center pt-20 pb-2">
+          <div className="lg:hidden flex justify-center pb-2">
             <div className="relative">
               <div className="absolute inset-0 bg-gold/15 rounded-2xl blur-[40px] scale-110" />
               <Image
@@ -530,9 +530,9 @@ function ShakaSection() {
   ];
 
   return (
-    <section id="shaka" className="scroll-snap-section bg-purple-darker flex items-start pt-24 overflow-y-auto">
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-12">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+    <section id="shaka" className="scroll-snap-section bg-purple-darker flex items-center justify-center overflow-y-auto">
+      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 py-24 md:py-16">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
 
           {/* Left side - Content (45%) */}
           <div className="lg:w-[45%] flex-shrink-0 text-center lg:text-left">
@@ -540,12 +540,12 @@ function ShakaSection() {
             <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-6">$SHAKA</p>
 
             {/* Headline */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-8">
               The brand coin.
             </h2>
 
             {/* Body - 3 paragraphs */}
-            <div className="space-y-6 text-white/60 leading-relaxed text-lg mb-12">
+            <div className="space-y-4 md:space-y-6 text-white/60 leading-relaxed text-sm md:text-lg mb-8 md:mb-12">
               <p>
                 The old model is broken. You buy the product, tell your friends, watch it blow up - and get nothing. The people who build the hype never share in the upside.
               </p>
@@ -558,22 +558,22 @@ function ShakaSection() {
             </div>
 
             {/* Stats row */}
-            <div className="flex justify-between mb-12">
+            <div className="flex justify-between mb-8 md:mb-12">
               {stats.map((stat) => (
                 <div key={stat.label} className="flex-1">
-                  <div className="text-2xl md:text-3xl font-black text-gold mb-1">{stat.value}</div>
-                  <div className="text-xs text-white/50 uppercase tracking-wide">{stat.label}</div>
+                  <div className="text-xl md:text-3xl font-black text-gold mb-1">{stat.value}</div>
+                  <div className="text-[10px] md:text-xs text-white/50 uppercase tracking-wide">{stat.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Buy Links - 4 buttons */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2 md:gap-3 mb-6 md:mb-8">
               {buyLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="border border-gold/60 text-gold font-bold px-6 py-3 rounded-full hover:bg-gold hover:text-purple-dark transition-all text-sm"
+                  className="border border-gold/60 text-gold font-bold px-4 md:px-6 py-2 md:py-3 rounded-full hover:bg-gold hover:text-purple-dark transition-all text-xs md:text-sm"
                 >
                   {link.label}
                 </a>
@@ -670,19 +670,19 @@ function ProductsShowcase() {
 
   return (
     <section id="products" ref={sectionRef} className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
-      <div className="w-full max-w-6xl mx-auto px-8 lg:px-12 pb-16">
+      <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12 pb-16">
         {/* Top section - Intro text */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           {/* Label */}
           <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-4">Products</p>
 
           {/* Headline */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-8">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-8">
             Real products. Real customers.
           </h2>
 
           {/* Body - 2 value props */}
-          <div className="max-w-3xl mx-auto flex flex-col md:flex-row justify-center gap-12 md:gap-16">
+          <div className="max-w-3xl mx-auto flex flex-col md:flex-row justify-center gap-6 md:gap-16">
             <div className="text-center">
               <h3 className="text-white font-bold text-base mb-1">Premium Headwear</h3>
               <p className="text-white/50 text-sm">When the helmet comes off, the hat goes on.</p>
@@ -794,9 +794,9 @@ function TheModel() {
 
   return (
     <section id="the-model" className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
-      <div className="max-w-5xl mx-auto px-8 text-center w-full">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 text-center w-full">
         {/* Label - Fixed */}
-        <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-4">Alignment</p>
+        <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">Alignment</p>
 
         {/* Headline - Fixed */}
         <h2 className="text-xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6 leading-tight">
@@ -804,7 +804,7 @@ function TheModel() {
         </h2>
 
         {/* Toggle Pills */}
-        <div className="flex justify-center gap-2 md:gap-3 mb-12">
+        <div className="flex justify-center gap-2 md:gap-3 mb-6 md:mb-12">
           {tabs.map((tab) => (
             <button
               key={tab.key}
@@ -821,35 +821,35 @@ function TheModel() {
         </div>
 
         {/* Dynamic Content - fixed height to prevent layout shift */}
-        <div className="min-h-[320px] flex flex-col justify-center">
+        <div className="min-h-[280px] md:min-h-[320px] flex flex-col justify-center">
           {/* Subhead */}
-          <p className="text-lg md:text-xl text-white/70 mb-6 transition-opacity duration-300">
+          <p className="text-base md:text-xl text-white/70 mb-4 md:mb-6 transition-opacity duration-300">
             {current.subhead}
           </p>
 
           {/* Body */}
-          <p className="text-white/60 text-lg leading-relaxed max-w-[840px] mx-auto mb-12 transition-opacity duration-300">
+          <p className="text-white/60 text-sm md:text-lg leading-relaxed max-w-[840px] mx-auto mb-6 md:mb-12 transition-opacity duration-300">
             {current.body}
           </p>
 
           {/* Stats Row */}
-          <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-20 mb-12">
+          <div className="flex flex-row justify-center gap-6 md:gap-20 mb-6 md:mb-12">
             {current.stats.map((stat) => (
-              <div key={stat.label} className="text-center min-w-[140px]">
-                <div className="text-3xl md:text-4xl font-black text-gold mb-2 transition-all duration-300">{stat.value}</div>
-                <div className="text-xs md:text-sm text-white/50 uppercase tracking-[0.15em]">{stat.label}</div>
+              <div key={stat.label} className="text-center flex-1">
+                <div className="text-xl md:text-4xl font-black text-gold mb-1 md:mb-2 transition-all duration-300">{stat.value}</div>
+                <div className="text-[10px] md:text-sm text-white/50 uppercase tracking-wide md:tracking-[0.15em]">{stat.label}</div>
               </div>
             ))}
           </div>
 
           {/* Flywheel Image */}
-          <div className="mt-8">
+          <div className="mt-4 md:mt-8">
             <Image
               src="/images/Gemini_Generated_Image_p1i8gyp1i8gyp1i8.png"
               alt="Alignment Flywheel"
               width={500}
               height={500}
-              className="mx-auto max-w-md w-full"
+              className="mx-auto max-w-[280px] md:max-w-md w-full"
             />
           </div>
         </div>
@@ -907,10 +907,10 @@ function IPGallery() {
   return (
     <section className="pb-16 bg-purple-dark overflow-hidden w-full">
       {/* Header */}
-      <div className="max-w-6xl mx-auto px-6 mb-12 text-center">
-        <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-4">The Art</p>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">From the vault.</h2>
-        <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 mb-8 md:mb-12 text-center">
+        <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">The Art</p>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 md:mb-4">From the vault.</h2>
+        <p className="text-white/60 text-sm md:text-xl max-w-2xl mx-auto">
           Stickers, artwork, and IP from the Shredding Sassy universe.
         </p>
       </div>
@@ -1294,25 +1294,25 @@ function CommunitySection() {
 
   return (
     <section id="community" className="pb-16 bg-purple-darker w-full">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-4">The Community</p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">Join the Mob</h2>
-          <p className="text-white/60 text-lg md:text-xl">Be a part of something truly special, born from web3, set to take over the world.</p>
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-8 md:mb-12">
+          <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">The Community</p>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 md:mb-4">Join the Mob</h2>
+          <p className="text-white/60 text-sm md:text-xl">Be a part of something truly special, born from web3, set to take over the world.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
           {socials.map((social) => (
             <a
               key={social.platform}
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-purple-dark border border-gold/20 rounded-2xl p-6 md:p-8 text-center hover:border-gold/40 hover:bg-purple-dark/80 transition-all group"
+              className="bg-purple-dark border border-gold/20 rounded-xl md:rounded-2xl p-4 md:p-8 text-center hover:border-gold/40 hover:bg-purple-dark/80 transition-all group"
             >
-              <div className="text-3xl md:text-4xl font-black text-gold mb-2">{social.stat}</div>
-              <div className="text-white font-bold mb-1 text-sm md:text-base">{social.platform}</div>
-              <div className="text-white/50 text-xs md:text-sm">{social.handle}</div>
+              <div className="text-2xl md:text-4xl font-black text-gold mb-1 md:mb-2">{social.stat}</div>
+              <div className="text-white font-bold mb-0.5 md:mb-1 text-xs md:text-base">{social.platform}</div>
+              <div className="text-white/50 text-[10px] md:text-sm">{social.handle}</div>
             </a>
           ))}
         </div>
@@ -1340,9 +1340,9 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-purple-darker border-t border-gold/20 py-10 md:py-16">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+    <footer className="bg-purple-darker border-t border-gold/20 py-8 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mb-8 md:mb-12">
           {/* Logo & Description */}
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
