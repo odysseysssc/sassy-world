@@ -425,7 +425,7 @@ function MeetSassy() {
   ];
 
   return (
-    <section id="meet-sassy" className="scroll-snap-section bg-purple-darker flex items-center">
+    <section id="meet-sassy" className="scroll-snap-section bg-purple-darker flex items-start pt-24 overflow-y-auto">
       <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Two-column layout: 45% left, 55% right */}
         <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
@@ -530,7 +530,7 @@ function ShakaSection() {
   ];
 
   return (
-    <section id="shaka" className="scroll-snap-section bg-purple-darker flex items-center">
+    <section id="shaka" className="scroll-snap-section bg-purple-darker flex items-start pt-24 overflow-y-auto">
       <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
@@ -669,8 +669,8 @@ function ProductsShowcase() {
   }, []);
 
   return (
-    <section id="products" ref={sectionRef} className="scroll-snap-section bg-purple-dark flex items-center">
-      <div className="w-full max-w-6xl mx-auto px-8 lg:px-12 py-16">
+    <section id="products" ref={sectionRef} className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
+      <div className="w-full max-w-6xl mx-auto px-8 lg:px-12 pb-16">
         {/* Top section - Intro text */}
         <div className="text-center mb-16">
           {/* Label */}
@@ -793,7 +793,7 @@ function TheModel() {
   const current = content[activeTab];
 
   return (
-    <section id="the-model" className="scroll-snap-section bg-purple-dark flex items-start pt-32">
+    <section id="the-model" className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
       <div className="max-w-5xl mx-auto px-8 text-center w-full">
         {/* Label - Fixed */}
         <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-4">Alignment</p>
@@ -905,7 +905,7 @@ function IPGallery() {
   ];
 
   return (
-    <section className="py-16 bg-purple-dark overflow-hidden w-full">
+    <section className="pb-16 bg-purple-dark overflow-hidden w-full">
       {/* Header */}
       <div className="max-w-6xl mx-auto px-6 mb-12 text-center">
         <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-4">The Art</p>
@@ -1174,7 +1174,7 @@ function AthletesSection() {
   }, [targetDate]);
 
   return (
-    <section className="py-16 bg-purple-dark w-full">
+    <section className="pb-16 bg-purple-dark w-full">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
@@ -1293,7 +1293,7 @@ function CommunitySection() {
   ];
 
   return (
-    <section id="community" className="py-16 bg-purple-darker w-full">
+    <section id="community" className="pb-16 bg-purple-darker w-full">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-4">The Community</p>
@@ -1441,7 +1441,7 @@ export default function Home() {
         <Hero />
 
         {/* 2. Proof */}
-        <section className="scroll-snap-section bg-purple-dark flex flex-col justify-center">
+        <section className="scroll-snap-section bg-purple-dark flex flex-col pt-24 overflow-y-auto">
           <div>
             <StatsHeadline />
             <ProofWall />
@@ -1462,17 +1462,17 @@ export default function Home() {
         <TheModel />
 
         {/* 7. Winter Games 2026 (Paralympics countdown) */}
-        <section id="athletes" className="scroll-snap-section bg-purple-dark flex items-center">
+        <section id="athletes" className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
           <AthletesSection />
         </section>
 
         {/* 9. IP Gallery */}
-        <section className="scroll-snap-section bg-purple-dark flex items-center">
+        <section className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
           <IPGallery />
         </section>
 
         {/* 10. Join the Mob / Social CTA */}
-        <section className="scroll-snap-section bg-purple-darker flex flex-col justify-center">
+        <section className="scroll-snap-section bg-purple-darker flex flex-col pt-24 overflow-y-auto">
           <CommunitySection />
           <Footer />
         </section>
