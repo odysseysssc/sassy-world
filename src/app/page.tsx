@@ -780,7 +780,7 @@ function TheModel() {
       subhead: "Identity and scarcity.",
       body: "NFTs are the cultural core - identity, status, and long-term belonging. Every secondary sale has a 4.2% royalty. Every royalty buys back and burns. 6,200 started. Burning to 4,200.",
       stats: [
-        { value: "4.2%", label: "ENFORCED ROYALTIES" },
+        { value: "4.2%", label: "ENFORCED ROYALTIES (COMING SOON)" },
         { value: "6,200 → 4,200", label: "DEFLATIONARY SUPPLY" },
         { value: "100%", label: "ROYALTIES TO BUYBACK" },
       ],
