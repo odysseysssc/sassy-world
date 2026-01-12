@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "Shredding Sassy | Home of Sassy the Sasquatch",
   description: "A place for shredders. Hats & chaos since 2023. Home of Sassy the Sasquatch™",
   icons: {
-    icon: "/images/logo.png",
+    icon: "/images/favicon.ico",
   },
 };
 

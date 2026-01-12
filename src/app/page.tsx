@@ -172,7 +172,7 @@ function Hero() {
 // Stats Headline
 function StatsHeadline() {
   return (
-    <div id="stats" className="pt-4 md:pt-8 pb-2 md:pb-8">
+    <div id="stats" className="pt-4 md:pt-8 pb-6 md:pb-8">
       <div className="text-center px-4 md:px-6">
         <h2 className="text-xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
           Crypto-native brand.
@@ -426,12 +426,12 @@ function MeetSassy() {
 
   return (
     <section id="meet-sassy" className="scroll-snap-section bg-purple-darker flex items-center justify-center overflow-y-auto">
-      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12 py-24 md:py-16">
+      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12 py-16 md:py-16">
         {/* Two-column layout: 45% left, 55% right */}
-        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-12">
 
           {/* Mobile Sassy thumbnail - shows above content on mobile */}
-          <div className="lg:hidden flex justify-center pb-2">
+          <div className="lg:hidden flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gold/15 rounded-2xl blur-[40px] scale-110" />
               <Image
@@ -439,7 +439,7 @@ function MeetSassy() {
                 alt="Sassy the Sasquatch"
                 width={200}
                 height={250}
-                className="relative z-10 h-[25vh] w-auto object-contain"
+                className="relative z-10 h-[15vh] w-auto object-contain"
               />
             </div>
           </div>
@@ -451,7 +451,7 @@ function MeetSassy() {
 
             {/* Headline */}
             <h2 className="text-2xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-8">
-              The Wild Side of Humanity
+              The Primal Voice Inside
             </h2>
 
             {/* Body paragraphs - condensed on mobile */}
@@ -531,21 +531,21 @@ function ShakaSection() {
 
   return (
     <section id="shaka" className="scroll-snap-section bg-purple-darker flex items-center justify-center overflow-y-auto">
-      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 py-24 md:py-16">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 py-16 md:py-16">
+        <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-16">
 
           {/* Left side - Content (45%) */}
           <div className="lg:w-[45%] flex-shrink-0 text-center lg:text-left">
             {/* Label */}
-            <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-6">$SHAKA</p>
+            <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-3 md:mb-6">$SHAKA</p>
 
             {/* Headline */}
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-8">
+            <h2 className="text-2xl md:text-5xl lg:text-6xl font-black text-white mb-3 md:mb-8">
               The brand coin.
             </h2>
 
             {/* Body - 3 paragraphs */}
-            <div className="space-y-4 md:space-y-6 text-white/60 leading-relaxed text-sm md:text-lg mb-8 md:mb-12">
+            <div className="space-y-3 md:space-y-6 text-white/60 leading-relaxed text-sm md:text-lg mb-6 md:mb-12">
               <p>
                 The old model is broken. You buy the product, tell your friends, watch it blow up - and get nothing. The people who build the hype never share in the upside.
               </p>
@@ -558,7 +558,7 @@ function ShakaSection() {
             </div>
 
             {/* Stats row */}
-            <div className="flex justify-between mb-8 md:mb-12">
+            <div className="flex justify-between mb-6 md:mb-12">
               {stats.map((stat) => (
                 <div key={stat.label} className="flex-1">
                   <div className="text-xl md:text-3xl font-black text-gold mb-1">{stat.value}</div>
@@ -567,13 +567,13 @@ function ShakaSection() {
               ))}
             </div>
 
-            {/* Buy Links - 4 buttons */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 md:gap-3 mb-6 md:mb-8">
+            {/* Buy Links - 4 buttons (2x2 grid on mobile) */}
+            <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center lg:justify-start gap-2 md:gap-3 mb-4 md:mb-8">
               {buyLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="border border-gold/60 text-gold font-bold px-4 md:px-6 py-2 md:py-3 rounded-full hover:bg-gold hover:text-purple-dark transition-all text-xs md:text-sm"
+                  className="border border-gold/60 text-gold font-bold px-4 md:px-6 py-2 md:py-3 rounded-full hover:bg-gold hover:text-purple-dark transition-all text-xs md:text-sm text-center"
                 >
                   {link.label}
                 </a>
@@ -595,8 +595,8 @@ function ShakaSection() {
             </div>
           </div>
 
-          {/* Right side - Shaka Hand Visual (55%) */}
-          <div className="lg:w-[55%] flex-shrink-0 flex items-center justify-center">
+          {/* Right side - Shaka Hand Visual (55%) - hidden on mobile */}
+          <div className="hidden md:flex lg:w-[55%] flex-shrink-0 items-center justify-center">
             <div className="relative flex items-center">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gold/15 rounded-[2rem] blur-[60px] scale-110" />
@@ -793,23 +793,23 @@ function TheModel() {
   const current = content[activeTab];
 
   return (
-    <section id="the-model" className="scroll-snap-section bg-purple-dark flex items-start pt-24 overflow-y-auto">
-      <div className="max-w-5xl mx-auto px-4 md:px-8 text-center w-full">
+    <section id="the-model" className="scroll-snap-section bg-purple-dark flex items-center md:items-start overflow-y-auto">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 text-center w-full py-12 md:pt-28 md:pb-12">
         {/* Label - Fixed */}
         <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">Alignment</p>
 
         {/* Headline - Fixed */}
-        <h2 className="text-xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6 leading-tight">
+        <h2 className="text-lg md:text-4xl lg:text-5xl font-black text-white mb-3 md:mb-6 leading-tight">
           The people who help build a brand should share in its upside.
         </h2>
 
         {/* Toggle Pills */}
-        <div className="flex justify-center gap-2 md:gap-3 mb-6 md:mb-12">
+        <div className="flex justify-center gap-1.5 md:gap-3 mb-4 md:mb-8">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-4 md:px-8 py-2 md:py-3 rounded-full text-sm md:text-base font-bold transition-all ${
+              className={`px-3 md:px-8 py-1.5 md:py-3 rounded-full text-xs md:text-base font-bold transition-all ${
                 activeTab === tab.key
                   ? 'bg-gold text-purple-dark'
                   : 'border border-gold/60 text-gold hover:border-gold'
@@ -820,36 +820,36 @@ function TheModel() {
           ))}
         </div>
 
-        {/* Dynamic Content - fixed height to prevent layout shift */}
-        <div className="min-h-[280px] md:min-h-[320px] flex flex-col justify-center">
+        {/* Dynamic Content */}
+        <div className="min-h-0 flex flex-col justify-center">
           {/* Subhead */}
-          <p className="text-base md:text-xl text-white/70 mb-4 md:mb-6 transition-opacity duration-300">
+          <p className="text-sm md:text-xl text-white/70 mb-2 md:mb-4 transition-opacity duration-300">
             {current.subhead}
           </p>
 
           {/* Body */}
-          <p className="text-white/60 text-sm md:text-lg leading-relaxed max-w-[840px] mx-auto mb-6 md:mb-12 transition-opacity duration-300">
+          <p className="text-white/60 text-xs md:text-lg leading-relaxed max-w-[840px] mx-auto mb-4 md:mb-8 transition-opacity duration-300">
             {current.body}
           </p>
 
           {/* Stats Row */}
-          <div className="flex flex-row justify-center gap-6 md:gap-20 mb-6 md:mb-12">
+          <div className="flex flex-row justify-center gap-4 md:gap-16 mb-4 md:mb-8">
             {current.stats.map((stat) => (
               <div key={stat.label} className="text-center flex-1">
-                <div className="text-xl md:text-4xl font-black text-gold mb-1 md:mb-2 transition-all duration-300">{stat.value}</div>
-                <div className="text-[10px] md:text-sm text-white/50 uppercase tracking-wide md:tracking-[0.15em]">{stat.label}</div>
+                <div className="text-lg md:text-3xl font-black text-gold mb-0.5 md:mb-2 transition-all duration-300">{stat.value}</div>
+                <div className="text-[8px] md:text-sm text-white/50 uppercase tracking-wide md:tracking-[0.15em]">{stat.label}</div>
               </div>
             ))}
           </div>
 
           {/* Flywheel Image */}
-          <div className="mt-4 md:mt-8">
+          <div className="mt-2 md:mt-6">
             <Image
               src="/images/Gemini_Generated_Image_p1i8gyp1i8gyp1i8.png"
               alt="Alignment Flywheel"
               width={500}
               height={500}
-              className="mx-auto max-w-[280px] md:max-w-md w-full"
+              className="mx-auto max-w-[200px] md:max-w-[400px] w-full"
             />
           </div>
         </div>
@@ -1293,7 +1293,7 @@ function CommunitySection() {
   ];
 
   return (
-    <section id="community" className="pb-16 bg-purple-darker w-full">
+    <section id="community" className="pt-16 md:pt-28 pb-16 bg-purple-darker w-full">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div className="text-center mb-8 md:mb-12">
           <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">The Community</p>
