@@ -31,11 +31,11 @@ function Nav() {
 
   const navLinks = [
     { label: "NFTs", href: "#meet-sassy" },
-    { label: "TOKEN", href: "#shaka" },
+    { label: "$SHAKA", href: "#shaka" },
     { label: "PRODUCTS", href: "#products" },
     { label: "ALIGNMENT", href: "#the-model" },
-    { label: "ATHLETES", href: "#athletes" },
-    { label: "COMMUNITY", href: "#community" },
+    { label: "AMBASSADORS", href: "#athletes" },
+    { label: "THE MOB", href: "#community" },
   ];
 
   return (
@@ -79,15 +79,25 @@ function Nav() {
           </svg>
         </button>
 
-        {/* CTA Button */}
-        <a
-          href="https://opensea.io/collection/shredding-sassy-base/tokens"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:block bg-gold text-purple-dark font-bold px-6 py-2.5 rounded-full hover:bg-yellow-300 transition-all text-sm"
-        >
-          BUY $SHAKA
-        </a>
+        {/* CTA Buttons */}
+        <div className="hidden md:flex items-center gap-2">
+          <a
+            href="https://opensea.io/collection/shredding-sassy-base"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-gold text-gold font-bold px-6 py-2.5 rounded-full hover:bg-gold hover:text-purple-dark transition-all text-sm"
+          >
+            BUY NFT
+          </a>
+          <a
+            href="https://app.uniswap.org/swap?outputCurrency=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F&chain=base"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gold text-purple-dark font-bold px-6 py-2.5 rounded-full hover:bg-yellow-300 transition-all text-sm"
+          >
+            BUY $SHAKA
+          </a>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -104,14 +114,24 @@ function Nav() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="https://opensea.io/collection/shredding-sassy-base/tokens"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block bg-gold text-purple-dark font-bold px-4 py-3 rounded-full text-center text-sm mt-4"
-            >
-              BUY $SHAKA
-            </a>
+            <div className="flex gap-2 mt-4">
+              <a
+                href="https://opensea.io/collection/shredding-sassy-base"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 border border-gold text-gold font-bold px-4 py-3 rounded-full text-center text-sm"
+              >
+                BUY NFT
+              </a>
+              <a
+                href="https://app.uniswap.org/swap?outputCurrency=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F&chain=base"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-gold text-purple-dark font-bold px-4 py-3 rounded-full text-center text-sm"
+              >
+                BUY $SHAKA
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -121,72 +141,6 @@ function Nav() {
 
 // Hero Section
 function Hero() {
-  return (
-    <section className="scroll-snap-section relative h-screen w-full overflow-hidden bg-purple-dark">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/hero2.png"
-          alt="Shredding Sassy Hero"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      {/* Bottom Gradient Overlay */}
-      <div
-        className="absolute inset-x-0 bottom-0 h-[40%]"
-        style={{ background: 'linear-gradient(to bottom, transparent, rgba(40,6,70,0.7))' }}
-      />
-
-      {/* Left Gradient Overlay */}
-      <div
-        className="absolute inset-y-0 left-0 w-[60%] md:w-[40%]"
-        style={{ background: 'linear-gradient(to right, rgba(40,6,70,0.8), transparent)' }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end items-start text-left px-6 md:pl-[80px] pb-24 md:pb-[180px]">
-        <p className="text-white text-sm md:text-lg tracking-[0.3em] uppercase mb-2 drop-shadow-lg">
-          The World of
-        </p>
-        <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-gold tracking-tight mb-4 drop-shadow-lg" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5)' }}>
-          SHREDDING SASSY
-        </h1>
-        <p className="text-white/80 text-base md:text-xl drop-shadow-lg max-w-md" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
-          Real brand. Real products. When we win, you win.
-        </p>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-gold rounded-full" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Stats Headline
-function StatsHeadline() {
-  return (
-    <div id="stats" className="pt-4 md:pt-8 pb-6 md:pb-8">
-      <div className="text-center px-8 md:px-6">
-        <h2 className="text-xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
-          Crypto-native brand.
-          <br />
-          Real-world impact.
-        </h2>
-        <div className="w-12 md:w-24 h-0.5 md:h-1 bg-gold mx-auto rounded-full mt-2 md:mt-6" />
-      </div>
-    </div>
-  );
-}
-
-// Proof Points - minimal horizontal legend bar
-function ProofPoints() {
   const proofPoints = [
     {
       value: "PRO SNOWBOARDER",
@@ -221,21 +175,65 @@ function ProofPoints() {
   ];
 
   return (
-    <div className="pt-6 md:pt-8 pb-0 md:pb-10">
-      <div className="max-w-4xl mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-10">
-          {proofPoints.map((point) => (
-            <div key={point.label} className={`text-center ${point.hideOnMobile ? 'hidden md:block' : ''}`}>
-              <div className="text-gold/60 mb-1 md:mb-3 flex justify-center">
-                {point.icon}
+    <section className="scroll-snap-section relative h-screen w-full overflow-hidden bg-purple-dark">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero2.png"
+          alt="Shredding Sassy Hero"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
+      {/* Bottom Gradient Overlay */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-[50%]"
+        style={{ background: 'linear-gradient(to bottom, transparent, rgba(40,6,70,0.9))' }}
+      />
+
+      {/* Left Gradient Overlay */}
+      <div
+        className="absolute inset-y-0 left-0 w-[60%] md:w-[40%]"
+        style={{ background: 'linear-gradient(to right, rgba(40,6,70,0.8), transparent)' }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 h-full flex flex-col justify-end items-center text-center px-6 pb-8 md:pb-16">
+        <p className="text-white text-sm md:text-lg tracking-[0.3em] uppercase mb-2 drop-shadow-lg">
+          The World of
+        </p>
+        <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-gold tracking-tight mb-4 drop-shadow-lg" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5)' }}>
+          SHREDDING SASSY
+        </h1>
+        <p className="text-white/80 text-base md:text-xl drop-shadow-lg max-w-xl mb-8 md:mb-12" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
+          Real brand. Real products. When we win, you win. Grab a Sassy. Align with $SHAKA. Join the mob. Rep the gear.
+        </p>
+
+        {/* Proof Points - moved into Hero */}
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-2 md:gap-8 justify-items-center">
+            {proofPoints.map((point) => (
+              <div key={point.label} className={`text-center ${point.hideOnMobile ? 'hidden md:block' : ''}`}>
+                <div className="text-gold/80 mb-1 md:mb-2 flex justify-center drop-shadow-lg">
+                  {point.icon}
+                </div>
+                <div className="text-[9px] md:text-sm font-black text-white mb-0.5 leading-tight drop-shadow-lg">{point.value}</div>
+                <div className="text-[7px] md:text-xs text-white/60 uppercase tracking-wider drop-shadow-lg">{point.label}</div>
               </div>
-              <div className="text-[10px] md:text-base font-black text-white mb-0.5 md:mb-1 leading-tight">{point.value}</div>
-              <div className="text-[8px] md:text-xs text-white/40 uppercase tracking-wider">{point.label}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+          <div className="w-1 h-2 bg-gold rounded-full" />
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -422,17 +420,17 @@ function MeetSassy() {
     },
     {
       title: "Status",
-      desc: "rare traits hit different",
+      desc: "Rare traits + flex value",
       icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>
     },
     {
       title: "Collectible",
-      desc: "trade, collect, complete sets",
+      desc: "trade, collect, complete sets (IYKYK)",
       icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 6.878V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 004.5 9v.878m13.5-3A2.25 2.25 0 0119.5 9v.878m0 0a2.246 2.246 0 00-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0121 12v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6c0-.98.626-1.813 1.5-2.122" /></svg>
     },
     {
       title: "Access",
-      desc: "10% off products, token-gated access",
+      desc: "10% off products + token-gated perks",
       icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" /></svg>
     },
   ];
@@ -464,18 +462,22 @@ function MeetSassy() {
               The Primal Voice Inside
             </h2>
 
-            {/* Body paragraphs - condensed on mobile */}
+            {/* Body paragraphs - updated copy */}
             <div className="space-y-2 md:space-y-6 text-white/70 leading-relaxed text-sm md:text-lg mb-4 md:mb-12">
               <p>
-                Sassy is a Sasquatch. The part of you that wants to tell your boss to fuck off
-                and disappear into the mountains.
+                Sassy is a Sasquatch – the part of you that wants to tell your boss to fuck off, ghost your inbox, and disappear into the mountains.
               </p>
               <p className="hidden md:block">
-                Legend has it Sassy&apos;s been riding these mountains since before humans had a
-                word for it. First tracks, every time.
+                Legend has it when the first storm hit these peaks, Sassy was already there… Watching. Waiting. Leaving tracks where no one else dares.
+              </p>
+              <p className="hidden md:block">
+                First tracks, every time.
               </p>
               <p>
-                6,200 unique Sasquatches living onchain - each with their own traits, rarity, and personality. All of them shred.
+                6,200 Sassy NFTs live onchain – each one unique, with its own traits, rarity, and personality.
+              </p>
+              <p>
+                And yes… they all shred.
               </p>
             </div>
 
@@ -546,7 +548,7 @@ function ShakaSection() {
           {/* Left side - Content (45%) */}
           <div className="lg:w-[45%] flex-shrink-0 text-center lg:text-left">
             {/* Label */}
-            <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-3 md:mb-6">$SHAKA</p>
+            <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-3 md:mb-6">$SHAKA TOKEN</p>
 
             {/* Headline */}
             <h2 className="text-2xl md:text-5xl lg:text-6xl font-black text-white mb-3 md:mb-8">
@@ -559,10 +561,10 @@ function ShakaSection() {
                 The old model is broken. You buy the product, tell your friends, watch it blow up - and get nothing. The people who build the hype never share in the upside.
               </p>
               <p>
-                SHAKA flips that. When the brand wins, holders win. No gatekeeping, no barriers - just pure alignment with where this is going.
+                $SHAKA flips that. When the brand wins, holders win. Period.
               </p>
               <p>
-                10% of all brand revenue flows into SHAKA buybacks. The more we grow, the more aligned we get.
+                10% of brand revenue flows into $SHAKA buybacks. The more we grow, the more the ecosystem gets fueled.
               </p>
             </div>
 
@@ -776,10 +778,10 @@ function TheModel() {
 
   const content = {
     nfts: {
-      subhead: "Identity and scarcity.",
-      body: "NFTs are the cultural core - identity, status, and long-term belonging. Every secondary sale has a 4.2% royalty. Every royalty buys back and burns. 6,200 started. Burning to 4,200.",
+      subhead: "Identity. Scarcity. Utility.",
+      body: "NFTs are the cultural core. This is where identity, status, and long-term belonging live. Every secondary sale carries a 4.2% royalty (enforced). Those royalties go straight into $SHAKA buybacks — and the supply gets burned down over time. It started at 6,200. It burns to 4,200.",
       stats: [
-        { value: "4.2%", label: "ENFORCED ROYALTIES (COMING SOON)" },
+        { value: "4.2%", label: "ENFORCED ROYALTIES" },
         { value: "6,200 → 4,200", label: "DEFLATIONARY SUPPLY" },
         { value: "100%", label: "ROYALTIES TO BUYBACK" },
       ],
@@ -788,7 +790,7 @@ function TheModel() {
     },
     token: {
       subhead: "The brand coin.",
-      body: "SHAKA is how you back Shredding Sassy. When the brand grows, holders grow with it.",
+      body: "$SHAKA is how you back Shredding Sassy – and stay aligned as it grows. When the brand levels up, holders level up with it.",
       stats: [
         { value: "166K+", label: "HOLDERS" },
         { value: "10%", label: "REVENUE BUYBACKS" },
@@ -799,7 +801,7 @@ function TheModel() {
     },
     products: {
       subhead: "A real brand with real customers.",
-      body: "Hats, pins, and gear worn by pro athletes and shipped worldwide. This is how Shredding Sassy reaches people who've never touched crypto - and 10% of every sale flows back into SHAKA.",
+      body: "Hats, pins, and gear worn by pro athlete ambassadors – shipped worldwide. This is how Shredding Sassy reaches people who've never touched Web3 and keeps the flywheel spinning: 10% of every sale flows into $SHAKA buybacks.",
       stats: [
         { value: "PRO ATHLETE", label: "BACKED" },
         { value: "SHIPPED", label: "WORLDWIDE" },
@@ -879,7 +881,7 @@ function TheModel() {
   );
 }
 
-// IP Gallery Section
+// IP Gallery Section (From the Vault)
 function IPGallery() {
   // Images from /public/images/ip/ with varied sizes and rotations
   const row1Images = [
@@ -935,6 +937,15 @@ function IPGallery() {
     { src: "/images/ip/Yyy.jpg", width: 300, height: 320, rotation: -1 },
   ];
 
+  const handleDownload = (src: string) => {
+    const link = document.createElement('a');
+    link.href = src;
+    link.download = src.split('/').pop() || 'sassy-artwork';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="pb-16 bg-purple-dark overflow-hidden w-full">
       {/* Header */}
@@ -952,7 +963,7 @@ function IPGallery() {
           {[...row1Images, ...row1Images].map((img, i) => (
             <div
               key={`r1-${i}`}
-              className="flex-shrink-0 rounded-2xl overflow-hidden bg-purple-darker"
+              className="flex-shrink-0 rounded-2xl overflow-hidden bg-purple-darker relative group"
               style={{
                 width: img.width,
                 height: img.height,
@@ -967,6 +978,18 @@ function IPGallery() {
                 height={img.height}
                 className="w-full h-full object-cover"
               />
+              {/* Download overlay */}
+              <button
+                onClick={() => handleDownload(img.src)}
+                className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
+              >
+                <div className="bg-gold text-purple-dark font-bold px-4 py-2 rounded-full text-sm flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download
+                </div>
+              </button>
             </div>
           ))}
         </div>
@@ -978,7 +1001,7 @@ function IPGallery() {
           {[...row2Images, ...row2Images].map((img, i) => (
             <div
               key={`r2-${i}`}
-              className="flex-shrink-0 rounded-2xl overflow-hidden bg-purple-darker"
+              className="flex-shrink-0 rounded-2xl overflow-hidden bg-purple-darker relative group"
               style={{
                 width: img.width,
                 height: img.height,
@@ -993,6 +1016,18 @@ function IPGallery() {
                 height={img.height}
                 className="w-full h-full object-cover"
               />
+              {/* Download overlay */}
+              <button
+                onClick={() => handleDownload(img.src)}
+                className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer"
+              >
+                <div className="bg-gold text-purple-dark font-bold px-4 py-2 rounded-full text-sm flex items-center gap-2">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Download
+                </div>
+              </button>
             </div>
           ))}
         </div>
@@ -1317,33 +1352,65 @@ function StorySection() {
 // Community Section
 function CommunitySection() {
   const socials = [
-    { platform: "X (Twitter)", handle: "@ShreddingSassy", stat: "13K", link: "https://x.com/ShreddingSassy" },
-    { platform: "Instagram", handle: "@shreddingsassy", stat: "10K", link: "https://instagram.com/shreddingsassy" },
-    { platform: "Discord", handle: "Sassy HQ", stat: "2K", link: "https://discord.gg/sassy" },
-    { platform: "NFTs / SHAKA", handle: "Buy on OpenSea", stat: "BUY", link: "https://opensea.io/collection/shredding-sassy-base" },
+    {
+      platform: "X (Twitter)",
+      handle: "@ShreddingSassy",
+      stat: "13K",
+      link: "https://twitter.com/ShreddingSassy",
+      icon: <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    },
+    {
+      platform: "Instagram",
+      handle: "@shreddingsassy",
+      stat: "10K",
+      link: "https://instagram.com/shreddingsassy",
+      icon: <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    },
+    {
+      platform: "Discord",
+      handle: "Sassy HQ",
+      stat: "2K",
+      link: "https://discord.gg/shreddingsassy",
+      icon: <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+    },
+    {
+      platform: "OpenSea",
+      handle: "Buy NFTs",
+      stat: "BUY",
+      link: "https://opensea.io/collection/shredding-sassy-base",
+      icon: <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.629 0 12 0zM5.92 12.403l.051-.081 3.123-4.884a.107.107 0 01.187.014c.52 1.169.972 2.623.76 3.528-.088.372-.335.876-.614 1.342a2.405 2.405 0 01-.117.199.106.106 0 01-.09.045H6.013a.106.106 0 01-.091-.163zm13.914 1.68a.109.109 0 01-.065.101c-.243.103-1.07.485-1.414.962-.878 1.222-1.548 2.97-3.048 2.97H9.053a4.019 4.019 0 01-4.013-4.028v-.072c0-.058.048-.106.108-.106h3.485c.07 0 .12.063.115.132-.026.226.017.459.125.67.206.42.636.682 1.099.682h1.726v-1.347H9.99a.11.11 0 01-.089-.173l.063-.09c.16-.231.391-.586.621-.992.156-.274.308-.566.43-.858.024-.052.043-.107.065-.16.033-.094.067-.182.091-.269a4.57 4.57 0 00.065-.223c.057-.25.081-.514.081-.787 0-.108-.004-.221-.014-.327-.005-.117-.02-.235-.034-.352a3.415 3.415 0 00-.048-.312 6.494 6.494 0 00-.098-.468l-.014-.06c-.03-.108-.056-.21-.09-.317a11.824 11.824 0 00-.328-.972 5.212 5.212 0 00-.142-.355c-.072-.178-.146-.339-.213-.49a3.564 3.564 0 01-.094-.197 4.658 4.658 0 00-.103-.213c-.024-.053-.053-.104-.072-.152l-.211-.388c-.029-.053.019-.118.077-.101l1.32.357h.01l.173.05.192.054.07.019v-.783c0-.379.302-.686.679-.686a.66.66 0 01.477.202.69.69 0 01.2.484V6.65l.141.039c.01.005.022.01.031.017.034.024.084.062.147.11.05.038.103.086.165.137a10.351 10.351 0 01.574.504c.214.199.454.432.684.691.065.074.127.146.192.226.062.079.132.156.19.232.079.104.16.212.235.324.033.053.074.108.105.161.096.142.178.288.257.435.034.067.067.141.096.213.089.197.159.396.202.598a.65.65 0 01.029.132v.01c.014.057.019.12.024.184a2.057 2.057 0 01-.106.874c-.031.084-.06.17-.098.254-.075.17-.161.343-.264.502-.034.06-.075.122-.113.182-.043.063-.089.123-.127.18a3.823 3.823 0 01-.173.221c-.053.072-.106.144-.166.209-.081.098-.16.19-.245.278-.048.058-.1.118-.156.17-.052.06-.108.113-.156.161-.084.084-.15.147-.208.202l-.137.122a.102.102 0 01-.072.03h-1.051v1.346h1.322c.295 0 .576-.104.804-.298.077-.067.415-.36.816-.802a.094.094 0 01.05-.03l3.65-1.057a.108.108 0 01.138.103z"/></svg>
+    },
   ];
 
   return (
-    <section id="community" className="pt-8 md:pt-28 pb-12 md:pb-16 bg-purple-darker w-full">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-8 md:mb-12">
-          <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-2 md:mb-4">The Community</p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-2 md:mb-4">Join the Mob</h2>
-          <p className="text-white/60 text-sm md:text-xl">Be a part of something truly special, born from web3, set to take over the world.</p>
+    <section id="community" className="pt-6 md:pt-10 pb-6 md:pb-10 bg-purple-darker w-full h-full flex flex-col justify-center">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 w-full">
+        <div className="text-center mb-4 md:mb-6">
+          <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-1 md:mb-2">The Mob</p>
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-white mb-1 md:mb-2">Join the Mob</h2>
+          <p className="text-white/60 text-sm md:text-lg">Be a part of something truly special, born from web3, set to take over the world.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+        {/* Scrolling Carousels from Proof section */}
+        <div className="mb-4 md:mb-6">
+          <ProofWall />
+        </div>
+
+        <div className="grid grid-cols-4 gap-2 md:gap-4 max-w-4xl mx-auto">
           {socials.map((social) => (
             <a
               key={social.platform}
               href={social.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-purple-dark border border-gold/20 rounded-xl md:rounded-2xl p-4 md:p-8 text-center hover:border-gold/40 hover:bg-purple-dark/80 transition-all group"
+              className="bg-purple-dark border border-gold/20 rounded-lg md:rounded-xl p-2 md:p-4 text-center hover:border-gold/40 hover:bg-purple-dark/80 transition-all group"
             >
-              <div className="text-2xl md:text-4xl font-black text-gold mb-1 md:mb-2">{social.stat}</div>
-              <div className="text-white font-bold mb-0.5 md:mb-1 text-xs md:text-base">{social.platform}</div>
-              <div className="text-white/50 text-[10px] md:text-sm">{social.handle}</div>
+              <div className="text-gold mb-1 md:mb-2 flex justify-center">
+                <div className="w-4 h-4 md:w-6 md:h-6">{social.icon}</div>
+              </div>
+              <div className="text-lg md:text-2xl font-black text-gold mb-0.5 md:mb-1">{social.stat}</div>
+              <div className="text-white font-bold text-[9px] md:text-xs">{social.platform}</div>
+              <div className="text-white/50 text-[8px] md:text-xs hidden md:block">{social.handle}</div>
             </a>
           ))}
         </div>
@@ -1471,16 +1538,7 @@ export default function Home() {
         {/* Hero */}
         <Hero />
 
-        {/* 2. Proof */}
-        <section className="scroll-snap-section bg-purple-dark flex flex-col pt-2 pb-8 md:pt-24 md:pb-0 overflow-y-auto">
-          <div>
-            <StatsHeadline />
-            <ProofWall />
-            <ProofPoints />
-          </div>
-        </section>
-
-        {/* 3. Meet Sassy */}
+        {/* 2. Meet Sassy (directly after Hero) */}
         <MeetSassy />
 
         {/* 4. SHAKA */}
@@ -1492,19 +1550,23 @@ export default function Home() {
         {/* 6. The Model */}
         <TheModel />
 
-        {/* 7. Winter Games 2026 (Paralympics countdown) */}
+        {/* 7. Ambassadors (Athletes) */}
         <section id="athletes" className="scroll-snap-section bg-purple-dark flex items-start pt-4 md:pt-24 overflow-y-auto">
           <AthletesSection />
         </section>
 
-        {/* 9. IP Gallery */}
+        {/* 8. The Mob (Community with carousels) */}
+        <section className="scroll-snap-section bg-purple-darker flex flex-col pt-4 md:pt-16 overflow-y-auto">
+          <CommunitySection />
+        </section>
+
+        {/* 9. From the Vault (IP Gallery - above footer) */}
         <section className="scroll-snap-section bg-purple-dark flex items-start pt-4 md:pt-24 overflow-y-auto">
           <IPGallery />
         </section>
 
-        {/* 10. Join the Mob / Social CTA */}
-        <section className="scroll-snap-section bg-purple-darker flex flex-col pt-4 md:pt-24 overflow-y-auto">
-          <CommunitySection />
+        {/* Footer */}
+        <section className="scroll-snap-section bg-purple-darker flex flex-col overflow-y-auto">
           <Footer />
         </section>
       </div>
