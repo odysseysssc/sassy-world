@@ -779,7 +779,7 @@ function TheModel() {
   const content = {
     nfts: {
       subhead: "Identity. Scarcity. Utility.",
-      body: "NFTs are the cultural core. This is where identity, status, and long-term belonging live. Every secondary sale carries a 4.2% royalty (enforced). Those royalties go straight into $SHAKA buybacks — and the supply gets burned down over time. It started at 6,200. It burns to 4,200.",
+      body: "NFTs are the cultural core. This is where identity, status, and long-term belonging live. Every secondary sale carries a 4.2% royalty (enforced). Those royalties buy back NFTs for purgatory before being burnt — and the supply gets burned down over time. It started at 6,200. It burns to 4,200.",
       stats: [
         { value: "4.2%", label: "ENFORCED ROYALTIES" },
         { value: "6,200 → 4,200", label: "DEFLATIONARY SUPPLY" },
