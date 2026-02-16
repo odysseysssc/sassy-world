@@ -45,58 +45,60 @@ body {
 /* Only enable snap and min-height on desktop */
 @media (min-width: 768px) {
   .scroll-snap-container {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
 
   .scroll-snap-section {
     min-height: 100vh;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
   }
 }
 
-/* Gallery scroll animations - smooth infinite loop */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+/* Marquee - infinite scroll gallery */
+.marquee {
+  overflow: hidden;
+  width: 100%;
 }
 
-@keyframes scroll-right {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+.marquee-content {
+  display: flex;
+  gap: 12px;
+  animation: marquee 30s linear infinite;
 }
 
-.animate-scroll-left {
-  animation: scroll-left 5s linear infinite;
-  will-change: transform;
+.marquee-reverse .marquee-content {
+  animation-direction: reverse;
 }
 
-.animate-scroll-right {
-  animation: scroll-right 5s linear infinite;
-  will-change: transform;
+.marquee-item {
+  flex-shrink: 0;
+  height: 180px;
+  width: 280px;
+  border-radius: 12px;
+  object-fit: cover;
 }
 
-/* Slower scroll on desktop */
 @media (min-width: 768px) {
-  .animate-scroll-left {
-    animation: scroll-left 23s linear infinite;
+  .marquee-item {
+    height: 250px;
+    width: 350px;
+    border-radius: 16px;
   }
 
-  .animate-scroll-right {
-    animation: scroll-right 25s linear infinite;
+  .marquee-content {
+    animation-duration: 40s;
   }
 }
 
-/* Pause on hover for better UX */
-.animate-scroll-left:hover,
-.animate-scroll-right:hover {
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee:hover .marquee-content {
   animation-play-state: paused;
 }

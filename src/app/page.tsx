@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 // Placeholder component for images
@@ -21,7 +21,8 @@ function ImagePlaceholder({
 // Navigation Component
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -29,10 +30,22 @@ function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    if (dropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [dropdownOpen]);
+
   const navLinks = [
     { label: "NFTs", href: "#meet-sassy" },
     { label: "$SHAKA", href: "#shaka" },
-    { label: "PRODUCTS", href: "#products" },
     { label: "ALIGNMENT", href: "#the-model" },
     { label: "AMBASSADORS", href: "#athletes" },
     { label: "THE MOB", href: "#community" },
@@ -65,76 +78,99 @@ function Nav() {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden text-white p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-
-        {/* CTA Buttons */}
-        <div className="hidden md:flex items-center gap-2">
+        {/* Right side - CTA Buttons + Dropdown */}
+        <div className="flex items-center gap-2">
           <a
             href="https://opensea.io/collection/shredding-sassy-base"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-gold text-gold font-bold px-6 py-2.5 rounded-full hover:bg-gold hover:text-purple-dark transition-all text-sm"
+            className="hidden sm:block border border-gold text-gold font-bold px-4 py-2 rounded-full hover:bg-gold hover:text-purple-dark transition-all text-xs"
           >
-            BUY NFT
+            BROWSE NFTS
           </a>
           <a
-            href="https://app.uniswap.org/swap?outputCurrency=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F&chain=base"
+            href="https://opensea.io/collection/shredding-sassy-base/tokens"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gold text-purple-dark font-bold px-6 py-2.5 rounded-full hover:bg-yellow-300 transition-all text-sm"
+            className="hidden sm:block bg-gold text-purple-dark font-bold px-4 py-2 rounded-full hover:bg-yellow-300 transition-all text-xs"
           >
             BUY $SHAKA
           </a>
-        </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-purple-darker/95 backdrop-blur-md border-t border-gold/20 mt-2">
-          <div className="px-4 py-4 space-y-2">
-            {navLinks.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 text-sm font-bold uppercase tracking-wider text-white/80 hover:text-gold transition-all"
-              >
-                {item.label}
-              </a>
-            ))}
-            <div className="flex gap-2 mt-4">
-              <a
-                href="https://opensea.io/collection/shredding-sassy-base"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 border border-gold text-gold font-bold px-4 py-3 rounded-full text-center text-sm"
-              >
-                BUY NFT
-              </a>
-              <a
-                href="https://app.uniswap.org/swap?outputCurrency=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F&chain=base"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 bg-gold text-purple-dark font-bold px-4 py-3 rounded-full text-center text-sm"
-              >
-                BUY $SHAKA
-              </a>
-            </div>
+          {/* Dropdown Menu */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="text-white p-2.5 hover:bg-white/10 rounded-full transition-all"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {dropdownOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-purple-darker border border-gold/20 rounded-xl shadow-xl overflow-hidden">
+                <a
+                  href="https://www.shreddingsassy.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-3 text-sm font-bold text-white hover:bg-white/10 transition-all"
+                >
+                  Store
+                </a>
+                <a
+                  href="https://portal.shreddingsassy.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-3 text-sm font-bold text-white hover:bg-white/10 transition-all"
+                >
+                  Portal
+                </a>
+                <a
+                  href="https://rewards.shreddingsassy.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-3 text-sm font-bold text-white hover:bg-white/10 transition-all"
+                >
+                  Rewards
+                </a>
+                <div className="border-t border-gold/20 my-1"></div>
+                <a
+                  href="https://x.com/shreddingsassy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-white hover:bg-white/10 transition-all"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  X
+                </a>
+                <a
+                  href="https://instagram.com/shreddingsassy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-white hover:bg-white/10 transition-all"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  Instagram
+                </a>
+                <a
+                  href="https://discord.gg/sassy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-4 py-3 text-sm font-bold text-white hover:bg-white/10 transition-all"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
+                  Discord
+                </a>
+              </div>
+            )}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
@@ -208,7 +244,7 @@ function Hero() {
           SHREDDING SASSY
         </h1>
         <p className="text-white/80 text-base md:text-xl drop-shadow-lg max-w-xl mb-8 md:mb-12" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
-          Real brand. Real products. When we win, you win. Grab a Sassy. Align with $SHAKA. Join the mob. Rep the gear.
+          Real brand. Real products. When we win, you win.
         </p>
 
         {/* Proof Points - moved into Hero */}
@@ -239,117 +275,43 @@ function Hero() {
 
 // Proof Wall - two horizontal filmstrips scrolling opposite directions
 function ProofWall() {
-  // Width variations: wide (420-500px landscape), medium (280-350px), narrow (180-220px portrait)
-  // Videos and images alternated for visual variety
-  const row1Items = [
-    { src: "/images/proof/_MG_0183 (2).jpg", type: "image", width: 420 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254594/2009284392498221056-qduq4juFpPmAh9rA_uowb8g.mp4", type: "video", width: 320 },
-    { src: "/images/proof/_MG_1018.jpg", type: "image", width: 480 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768255591/rz0vjumifggticog7tyy.mp4", type: "video", width: 280 },
-    { src: "/images/proof/_MG_1067.jpg", type: "image", width: 190 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254626/1867188708497383424-eQspnZi7JZ1dCwQg_eio2tn.mp4", type: "video", width: 380 },
-    { src: "/images/proof/_MG_1265 (1).jpg", type: "image", width: 210 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254598/1895799319342858501-YBZsnSjtsis6cFeb_igspfr.mp4", type: "video", width: 350 },
-    { src: "/images/proof/_MG_4306 (1).jpg", type: "image", width: 500 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254577/1744720327232589910-3FKepbeVRu9SSZsr_wpxu6u.mp4", type: "video", width: 240 },
-    { src: "/images/proof/_MG_5004.jpg", type: "image", width: 380 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254575/1936332427376333168-4N_IYM1puC4qi0nY_qnpnfy.mp4", type: "video", width: 300 },
-    { src: "/images/proof/IMG_1623.jpg", type: "image", width: 220 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254571/1754601529829654610-AOQ26mDU6JvDEn63dlEmD3zHDSapn4ZQVhhgVWejQRk_dxajgw.mp4", type: "video", width: 420 },
+  const row1Images = [
+    "/images/proof/_MG_0183.jpg",
+    "/images/proof/_MG_1018.jpg",
+    "/images/proof/_MG_1067.jpg",
+    "/images/proof/_MG_1265.jpg",
+    "/images/proof/_MG_4306.jpg",
+    "/images/proof/_MG_5004.jpg",
+    "/images/proof/IMG_1623.jpg",
   ];
 
-  const row2Items = [
-    { src: "/images/proof/_MG_5212.jpg", type: "image", width: 200 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254578/2005650169518583808-t2cavQ30LHsZAqG__wvq2wc.mp4", type: "video", width: 360 },
-    { src: "/images/proof/_MG_9674.jpg", type: "image", width: 190 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254568/1936332427376333168-3uGlz3CcYExrFQ62_ssczus.mp4", type: "video", width: 320 },
-    { src: "/images/proof/_MG_9724.jpg", type: "image", width: 480 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254555/1743413695005532444-QZnaZDb5Q0TH8yl8HnUTzdj8lg_Y-HjnSRvj4SjfMR4_spmokh.mp4", type: "video", width: 280 },
-    { src: "/images/proof/_MG_9824.jpg", type: "image", width: 300 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254553/1708240584148754589-BhvRdZC51Gxor6S9_jnh9qy.mp4", type: "video", width: 380 },
-    { src: "/images/proof/_MG_9847.jpg", type: "image", width: 180 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254549/1734709145104683200-cppDiErdSCPOfvo1_ki3mqu.mp4", type: "video", width: 340 },
-    { src: "/images/proof/_MG_9862.jpg", type: "image", width: 220 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254549/1725276657982885949-gra06Vh0ysekI4Ah_mbceht.mp4", type: "video", width: 260 },
-    { src: "/images/proof/G9gBoeMWUAAXy51.jpeg", type: "image", width: 500 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254548/1761020231353262113-Tq7rUshMIXKBML_Z_tve9zk.mp4", type: "video", width: 300 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254544/1712463085934653463-VrG1X2pSxZ5slxd7GmHyworWlzhbANlxBCzw33fmz3w_sys5qu.mp4", type: "video", width: 400 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254538/1786138641569378666-pTgPcCbH3gigJ4dV_ffrojj.mp4", type: "video", width: 350 },
-    { src: "https://res.cloudinary.com/dwaidu6ko/video/upload/v1768254537/1641149414776373250-2ToS-meZg5rR9VdS_kxrku8.mp4", type: "video", width: 280 },
+  const row2Images = [
+    "/images/proof/_MG_5212.jpg",
+    "/images/proof/_MG_9674.jpg",
+    "/images/proof/_MG_9724.jpg",
+    "/images/proof/_MG_9824.jpg",
+    "/images/proof/_MG_9847.jpg",
+    "/images/proof/_MG_9862.jpg",
+    "/images/proof/G9gBoeMWUAAXy51.jpeg",
   ];
 
   return (
-    <div className="overflow-hidden py-1 pb-4 md:py-6">
-      {/* Row 1 - scrolls left */}
-      <div className="overflow-hidden">
-        <div className="flex gap-2 md:gap-3 animate-scroll-left">
-          {[...row1Items, ...row1Items].map((item, i) => {
-            const mobileWidth = Math.round(item.width * 0.7);
-            return (
-              <div
-                key={`r1-${i}`}
-                className="flex-shrink-0 h-[32vh] md:h-[320px] rounded-lg md:rounded-xl overflow-hidden bg-purple-darker w-[var(--mobile-w)] md:w-[var(--desktop-w)]"
-                style={{ '--mobile-w': `${mobileWidth}px`, '--desktop-w': `${item.width}px` } as React.CSSProperties}
-              >
-                {item.type === 'video' ? (
-                  <video
-                    src={item.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt=""
-                    width={item.width}
-                    height={280}
-                    className="h-full w-full object-cover"
-                  />
-                )}
-              </div>
-            );
-          })}
+    <div className="space-y-3 py-4">
+      {/* Row 1 */}
+      <div className="marquee">
+        <div className="marquee-content">
+          {[...row1Images, ...row1Images].map((src, i) => (
+            <img key={i} src={src} alt="" className="marquee-item" />
+          ))}
         </div>
       </div>
 
-      {/* Gap between rows */}
-      <div className="h-3 md:h-3" />
-
-      {/* Row 2 - scrolls right */}
-      <div className="overflow-hidden">
-        <div className="flex gap-2 md:gap-3 animate-scroll-right">
-          {[...row2Items, ...row2Items].map((item, i) => {
-            const mobileWidth = Math.round(item.width * 0.7);
-            return (
-              <div
-                key={`r2-${i}`}
-                className="flex-shrink-0 h-[32vh] md:h-[320px] rounded-lg md:rounded-xl overflow-hidden bg-purple-darker w-[var(--mobile-w)] md:w-[var(--desktop-w)]"
-                style={{ '--mobile-w': `${mobileWidth}px`, '--desktop-w': `${item.width}px` } as React.CSSProperties}
-              >
-                {item.type === 'video' ? (
-                  <video
-                    src={item.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt=""
-                    width={item.width}
-                    height={280}
-                    className="h-full w-full object-cover"
-                  />
-                )}
-              </div>
-            );
-          })}
+      {/* Row 2 - reverse direction */}
+      <div className="marquee marquee-reverse">
+        <div className="marquee-content">
+          {[...row2Images, ...row2Images].map((src, i) => (
+            <img key={i} src={src} alt="" className="marquee-item" />
+          ))}
         </div>
       </div>
     </div>
@@ -535,7 +497,7 @@ function ShakaSection() {
   ];
 
   const buyLinks = [
-    { label: "UNISWAP", href: "https://app.uniswap.org/swap?outputCurrency=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F&chain=base" },
+    { label: "UNISWAP", href: "https://opensea.io/collection/shredding-sassy-base/tokens" },
     { label: "AERODROME", href: "https://aerodrome.finance/swap?to=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F" },
     { label: "OPENSEA", href: "https://opensea.io/collection/shredding-sassy-base" },
   ];
@@ -1423,53 +1385,40 @@ function CommunitySection() {
 function Footer() {
   const contractAddress = "0x478e03D45716dDa94F6DbC15A633B0D90c237E2F";
 
-  const quickLinks = [
-    { label: "OpenSea", href: "https://opensea.io/collection/shreddingsassy" },
-    { label: "Uniswap", href: "https://app.uniswap.org/swap?outputCurrency=0x478e03D45716dDa94F6DbC15A633B0D90c237E2F&chain=base" },
-    { label: "Basescan", href: "https://basescan.org/token/0x478e03D45716dDa94F6DbC15A633B0D90c237E2F" },
-    { label: "Shop", href: "https://www.shreddingsassy.com" },
+  const resources = [
+    { label: "Store", href: "https://www.shreddingsassy.com", highlight: true },
+    { label: "Portal", href: "https://portal.shreddingsassy.com", highlight: true },
+    { label: "Rewards", href: "https://rewards.shreddingsassy.com", highlight: true },
   ];
 
-  const socialLinks = [
-    { label: "Twitter/X", href: "https://x.com/ShreddingSassy" },
+  const socials = [
+    { label: "Twitter / X", href: "https://x.com/ShreddingSassy" },
     { label: "Instagram", href: "https://instagram.com/shreddingsassy" },
     { label: "Discord", href: "https://discord.gg/sassy" },
     { label: "YouTube", href: "https://youtube.com/@shreddingsassy" },
   ];
 
+  const availableOn = [
+    { label: "OpenSea", href: "https://opensea.io/collection/shredding-sassy-base" },
+    { label: "Basescan", href: "https://basescan.org/token/0x478e03D45716dDa94F6DbC15A633B0D90c237E2F" },
+  ];
+
   return (
-    <footer className="bg-purple-darker border-t border-gold/20 py-8 md:py-16">
+    <footer className="bg-purple-darker py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 mb-8 md:mb-12">
-          {/* Logo & Description */}
-          <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <Image
-                src="/images/logo.png"
-                alt="Shredding Sassy"
-                width={160}
-                height={40}
-                className="h-8 md:h-10 w-auto"
-              />
-            </div>
-            <p className="text-white/60 text-xs md:text-sm leading-relaxed max-w-md">
-              A place for shredders 🤙<br />
-              Hats & chaos since 2023<br />
-              Home of Sassy the Sasquatch™
-            </p>
-          </div>
-
-          {/* Quick Links */}
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12">
+          {/* Resources */}
           <div>
-            <h4 className="text-white font-bold mb-4">Quick Links</h4>
-            <div className="space-y-2">
-              {quickLinks.map((link) => (
+            <h4 className="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-6">Resources</h4>
+            <div className="space-y-3">
+              {resources.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-white/60 hover:text-gold transition-colors text-sm"
+                  className={`block font-bold text-sm transition-colors ${link.highlight ? 'text-white hover:text-gold' : 'text-white/60 hover:text-gold'}`}
                 >
                   {link.label}
                 </a>
@@ -1477,52 +1426,75 @@ function Footer() {
             </div>
           </div>
 
-          {/* Connect */}
+          {/* Socials */}
           <div>
-            <h4 className="text-white font-bold mb-4">Connect</h4>
-            <div className="space-y-2">
-              {socialLinks.map((link) => (
+            <h4 className="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-6">Socials</h4>
+            <div className="space-y-3">
+              {socials.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-white/60 hover:text-gold transition-colors text-sm"
+                  className="block text-white/60 hover:text-gold transition-colors font-bold text-sm"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Contract Address */}
-        <div className="border-t border-gold/10 pt-8 mb-8">
-          <p className="text-white/40 text-xs mb-2">$SHAKA Contract (Base)</p>
-          <div className="flex items-center gap-3">
-            <code className="text-gold/60 text-xs font-mono">{contractAddress}</code>
-            <button
-              onClick={() => navigator.clipboard.writeText(contractAddress)}
-              className="text-white/40 hover:text-white/60 transition-colors"
-              title="Copy address"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-            </button>
+          {/* Available On */}
+          <div>
+            <h4 className="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-6">Available On</h4>
+            <div className="space-y-3">
+              {availableOn.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-white/60 hover:text-gold transition-colors font-bold text-sm"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contract */}
+          <div>
+            <h4 className="text-gold uppercase tracking-[0.2em] text-xs font-bold mb-6">$SHAKA Contract</h4>
+            <p className="text-white/40 text-xs mb-2">Base Network</p>
+            <div className="flex items-center gap-2">
+              <code className="text-white/60 text-xs font-mono break-all">{contractAddress.slice(0, 10)}...{contractAddress.slice(-8)}</code>
+              <button
+                onClick={() => navigator.clipboard.writeText(contractAddress)}
+                className="text-white/40 hover:text-gold transition-colors flex-shrink-0"
+                title="Copy address"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Disclaimer */}
-        <div className="border-t border-gold/10 pt-8">
-          <p className="text-white/40 text-xs leading-relaxed">
-            Disclaimer: $SHAKA is a community token with no expectation of profit. NFTs are collectible
-            digital art. Nothing on this site constitutes financial advice. Crypto assets are volatile
-            and risky. Do your own research. Sassy Labs LLC.
+        <div className="border-t border-white/10 pt-8 mb-8">
+          <p className="text-white/30 text-xs leading-relaxed">
+            The content is for informational purposes only. Nothing contained on this site constitutes a solicitation, recommendation, endorsement, or offer to buy or sell any securities or other financial instruments. $SHAKA is a community token with no expectation of profit. NFTs are collectible digital art. Do your own research.
           </p>
-          <p className="text-white/40 text-xs mt-4">
-            &copy; {new Date().getFullYear()} Shredding Sassy. All rights reserved.
-          </p>
+        </div>
+
+        {/* Copyright */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-xs">
+          <p>&copy; {new Date().getFullYear()} Shredding Sassy. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <a href="https://www.shreddingsassy.com/pages/terms" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Terms of Use</a>
+            <a href="https://www.shreddingsassy.com/pages/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Privacy Policy</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -1565,10 +1537,8 @@ export default function Home() {
           <IPGallery />
         </section>
 
-        {/* Footer */}
-        <section className="scroll-snap-section bg-purple-darker flex flex-col overflow-y-auto">
-          <Footer />
-        </section>
+        {/* Footer - no snap to allow natural scroll */}
+        <Footer />
       </div>
     </>
   );
